@@ -59,25 +59,7 @@ while True:
             break
         # status change
         b = 1 
-    
-    # prompt new card deal 
-    ans = input('Would you like to draw another card?(yes/no)').lower()
-    if ans == "yes":
-        p1.append(deal_card())
-    else:
-        break
-    print(p1)
-    # new card deal for computer
-    if sum(c1) <= 17:
-        c1.append(deal_card())
-    else:
-        pass
-    
-    # Display card after deal
-    print("P card after draw is ",p1,"total score is ",sum(p1))
-    print("C card after draw is ",c1,"total score is ",sum(c1))
-    print("")
-    
+        
     # check busted 
     if check_busted(p1) == "busted":
         print("Computer_win")
@@ -99,6 +81,25 @@ while True:
             if c1[i] == 11:
                 c1[i] = 1
     
+    # prompt new card deal 
+    ans = input('Would you like to draw another card?(yes/no)').lower()
+    if ans == "yes":
+        p1.append(deal_card())
+    else:
+        break
+    print(p1)
+    # new card deal for computer
+    if sum(c1) <= 17:
+        c1.append(deal_card())
+    else:
+        pass
+    
+    # Display card after deal
+    print("P card after draw is ",p1,"total score is ",sum(p1))
+    print("C card after draw is ",c1,"total score is ",sum(c1))
+    print("")
+    
+
 # if a = 1 not come in   
 if  a != 1:
     print(check_win(p1,c1))
