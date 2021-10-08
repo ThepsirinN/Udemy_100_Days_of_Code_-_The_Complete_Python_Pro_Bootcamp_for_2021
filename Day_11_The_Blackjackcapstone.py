@@ -39,7 +39,7 @@ while True:
     if b == 0:
         if 11 in p1[0:2] and 10 in p1[0:2]:
         #blackjack player
-            print("player BJ")
+            print("Player BJ")
             break
         elif 11 in c1[0:2] and 10 in c1[0:2]:
         #blackjack Computer
@@ -54,17 +54,19 @@ while True:
         
     # check busted 
     if check_busted(p1) == "busted":
+        print("Player_Busted")
         print("Computer_win")
         a = 1
         break
-    
     # check if A on hand change the value from 11 to 1
     elif check_busted(p1) == "11 to 1":
         for i in range(len(p1)):
             if p1[i] == 11:
                 p1[i] = 1
+                
     # same            
     if check_busted(c1) == "busted":
+        print("Computer_Busted")
         print("Player_win")
         a = 1
         break
@@ -74,12 +76,15 @@ while True:
                 c1[i] = 1
     
     # prompt new card deal 
-    ans = input('Would you like to draw another card?(yes/no)').lower()
+    ans = input('Would you like to draw another card?(yes/no) : ').lower()
     if ans == "yes":
         p1.append(deal_card())
     else:
-        break
-    print(p1)
+        if input("End The game?(yes/no) : ").lower() == "yes":
+            break
+        else:
+            pass
+        
     # new card deal for computer
     if sum(c1) <= 17:
         c1.append(deal_card())
@@ -90,7 +95,6 @@ while True:
     print("P card after draw is ",p1,"total score is ",sum(p1))
     print("C card after draw is ",c1,"total score is ",sum(c1))
     print("")
-    
 
 # if a = 1 not come in   
 if  a != 1:
