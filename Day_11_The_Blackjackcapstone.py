@@ -15,7 +15,7 @@ def check_busted(onhand):
             return "11 to 1"
         else:
             return "busted"
-# Check win lose draw and Blackjack check : if they hold A and 10 card should be blackjack
+# Check win lose draw 
 def check_win(player,computer):
     if sum(player) > sum(computer):
         return "Player_win"
@@ -23,16 +23,6 @@ def check_win(player,computer):
         return "Draw"
     else:
         return "Computer_win"
-    
-    if 11 in player[0:2] and 10 in player[0:2]:
-        #blackjack player
-        return "BJP"
-    elif 11 in computer[0:2] and 10 in computer[0:2]:
-        #blackjack Computer
-        return "BJC"
-    elif 11 in player[0:2] and 10 in player[0:2] and 11 in computer[0:2] and 10 in computer[0:2]:
-        #blackjack Both
-        return "BJB"
 
 # deal card for player and computer with list comprehension
 p1 = [deal_card() for i in range(2)]
@@ -45,17 +35,19 @@ b = 0
 while True:
     print("P card is ",p1,"total score is ",sum(p1))
     print("C card is ",c1,"total score is ",sum(c1))
-    
-    # check blackjack in first draw
+    # check blackjack in first draw if they hold A and 10 card should be blackjack
     if b == 0:
-        if check_win(p1,c1) == "BJP":
-            print("Player_win")
+        if 11 in p1[0:2] and 10 in p1[0:2]:
+        #blackjack player
+            print("player BJ")
             break
-        elif check_win(p1,c1) == "BJC":
-            print("Computer_win")
+        elif 11 in c1[0:2] and 10 in c1[0:2]:
+        #blackjack Computer
+            print("Computer BJ")
             break
-        elif check_win(p1,c1) == "BJB":
-            print("Draw")
+        elif 11 in p1[0:2] and 10 in p1[0:2] and 11 in c1[0:2] and 10 in c1[0:2]:
+        #blackjack Both
+            print("BJ Both, Draw")
             break
         # status change
         b = 1 
