@@ -27,10 +27,10 @@ def check_win(player,computer):
     if 11 in player[0:2] and 10 in player[0:2]:
         #blackjack player
         return "BJP"
-    elif 11 in computer[0:2] and 10 in player[0:2]:
+    elif 11 in computer[0:2] and 10 in computer[0:2]:
         #blackjack Computer
         return "BJC"
-    elif 11 in player[0:2] and 10 in player[0:2] and 11 in computer[0:2] and 10 in player[0:2]:
+    elif 11 in player[0:2] and 10 in player[0:2] and 11 in computer[0:2] and 10 in computer[0:2]:
         #blackjack Both
         return "BJB"
 
